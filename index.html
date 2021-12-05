@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        #clock{
+            width: 500px;
+            height: 100px;
+            margin:  100px auto;
+            border: 4px rgb(40, 40, 40) solid;
+            border-radius: 5px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        9:33:45
+    </div>
+    <script>
+        setInterval( showTime, 1000);
+        function showTime(){
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let second = time.getSeconds();
+            if( hour < 10){
+                hour = "0" + hour;
+            }
+            if( min < 10){
+                min = "0" + min;
+            }
+            if( second < 10){
+                second = "0" + second;
+            }
+            console.log( hour, min, second);
+            document.getElementById("clock").innerHTML = `${hour}:${min}:${second}`;
+        }
+    </script>
+</body>
+</html>
